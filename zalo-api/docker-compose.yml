@@ -1,0 +1,17 @@
+services:
+  zalo:
+    build: .
+    container_name: zalo-api
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+    ports:
+      # chỉ mở cho máy local; muốn public thì đặt sau reverse proxy có HTTPS
+      - "127.0.0.1:${PORT:-3001}:3001"
+    volumes:
+      # auth (phiên đăng nhập = quyền vào tài khoản), zalo.db, media: mất volume = phải quét QR lại
+      - zalo-data:/data
+
+volumes:
+  zalo-data:
