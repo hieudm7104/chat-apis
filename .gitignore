@@ -11,10 +11,10 @@ browser-token.json
 decoded-ws.json
 docs
 !docs/
-docs/*
-!docs/index.html
-!docs/404.html
-!docs/.nojekyll
+whatsapp-api/docs/*
+!whatsapp-api/docs/index.html
+!whatsapp-api/docs/404.html
+!whatsapp-api/docs/.nojekyll
 lib
 messages*.json
 node_modules

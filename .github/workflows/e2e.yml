@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+defaults:
+  run:
+    working-directory: whatsapp-api
+
 jobs:
   e2e:
     name: E2E Tests
