@@ -1,0 +1,17 @@
+services:
+  bot:
+    build: .
+    container_name: whatsapp-bot
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+    ports:
+      # chỉ mở cho máy local; muốn public thì đặt sau reverse proxy có HTTPS
+      - "127.0.0.1:${PORT:-3000}:3000"
+    volumes:
+      # auth (phiên đăng nhập), bot.db, media: mất volume = phải pair lại
+      - bot-data:/data
+
+volumes:
+  bot-data:
